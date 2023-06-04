@@ -22,12 +22,11 @@ public class Main {
             while(true){
                 int randomIndex = rand.nextInt(terms.size());
                 String randomElement = terms.get(randomIndex);
-                System.out.println(randomElement);
+                System.out.println("Word: " + randomElement);
 
                 System.out.print("Your Answer: ");
                 String t = myObj.nextLine();
-                System.out.println(t);
-                System.out.println("Answer: " + randomElement);
+                System.out.println("Answer: " + jsonObject.get(randomElement));
                 System.out.println();
 
                 if (!t.isEmpty()){
