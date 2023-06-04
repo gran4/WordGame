@@ -19,7 +19,7 @@ public class Main {
             Random rand = new Random();
 
             Scanner myObj = new Scanner(System.in);
-            while(true){
+            while(terms.size() > 0){
                 int randomIndex = rand.nextInt(terms.size());
                 String randomElement = terms.get(randomIndex);
                 System.out.println("Word: " + randomElement);
@@ -33,6 +33,7 @@ public class Main {
                     terms.remove(randomElement);
                 }
             }
+            System.out.println("FINISHED, You Studied all the words!!!");
 
         } catch (JSONException e) {
             e.printStackTrace();
