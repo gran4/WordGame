@@ -1,0 +1,44 @@
+import org.json.JSONObject;
+import org.json.JSONException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            // Read the JSON file as a string
+            String jsonContent = new String(Files.readAllBytes(Paths.get("Spainish.json")));
+
+            // Create a JSONObject from the JSON string
+            JSONObject jsonObject = new JSONObject(jsonContent);
+
+            // Get the keys (terms) from the JSONObject
+            List<String> terms = new ArrayList<>(Arrays.asList(JSONObject.getNames(jsonObject)));
+
+            Random rand = new Random();
+
+            Scanner myObj = new Scanner(System.in);
+            while(true){
+                int randomIndex = rand.nextInt(terms.size());
+                String randomElement = terms.get(randomIndex);
+                System.out.println(randomElement);
+
+                System.out.print("Your Answer: ");
+                String t = myObj.nextLine();
+                System.out.println(t);
+                System.out.println("Answer: " + randomElement);
+                System.out.println();
+
+                if (!t.isEmpty()){
+                    terms.remove(randomElement);
+                }
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
